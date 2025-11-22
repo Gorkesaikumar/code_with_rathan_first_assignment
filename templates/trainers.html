@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding:10px;
+            {% comment %} text-align:center; {% endcomment %}
+            
+        }
+        body{
+            text-align: center;
+        }
+        .container-2{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trainers List</h1>
+    <div class="container-2">
+    <table>
+        <tr>
+            <th>Full name</th>
+            <th>Expertise</th>
+            <th>Email</th>
+            <th>Trainer photo</th>
+        </tr>
+        {% for trainer in trainers %}
+        <tr>
+            <td>{{ trainer.full_name }}</td>
+            <td>{{ trainer.expertise }}</td>
+            <td>{{ trainer.email }}</td>
+            <td><img src="{{ trainer.trainer_photo.url }}" alt="{{ trainer.full_name }}"></td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div> <br>
+    <button onclick="window.history.back()">Back</button>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding:10px;
+            {% comment %} text-align:center; {% endcomment %}
+            
+        }
+        body{
+            text-align: center;
+        }
+        .container-2{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Students List</h1>
+   <div class='container-2'> 
+    <table>
+        <th>Full name</th>
+        <th>Email</th>
+        <th>Enrolled course name</th>
+        <th>Trainer name</th>
+        <th>Active or not</th>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.full_name }}</td>
+            <td>{{ student.email }}</td>
+            <td>
+                {% for course in student.enrolled_courses.all %}
+                    {{ course.course_name }}<br>
+                {% empty %}
+                    No courses enrolled
+                {% endfor %}
+            </td>    
+            <td>{{ student.trainer.full_name }}</td>
+            <td>{{ student.is_active }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div> <br>
+<button onclick="window.history.back()">Back</button>
+</body>
+</html>

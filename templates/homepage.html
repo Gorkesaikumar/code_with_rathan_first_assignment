@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding:10px;
+            {% comment %} text-align:center; {% endcomment %}
+            
+        }
+        body{
+            text-align: center;
+        }
+        .container-2{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Academy</h1>
+    <nav>
+        <a href = "{% url 'homepage' %}">Home</a> |
+        <a href="{% url 'courses' %}">Courses</a> |
+        <a href="{% url 'trainers' %}">Trainers</a> |
+        <a href="{% url 'students' %}">Students</a>
+    </nav> <br>
+<div class="container-2">
+    <table>
+        <tr>
+            <th>Total Course</th>
+            <th>Total Trainers</th>
+            <th>Total Students</th>
+        </tr>
+        <tr>
+            <td>{{ total_courses }}</td>
+            <td>{{ total_trainers }}</td>
+            <td>{{ total_students }}</td>
+        </tr>
+
+    </table>
+    
+</div> 
+</body>
+</html>
